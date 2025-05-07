@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -6,9 +7,10 @@ export default function Home() {
       <h1 className="text-4xl font-bold text-blue-600">
       Seja bem vindo(a) ao meu primeiro projeto Next.js!
       </h1>
-      <a href="/pageLogin.tsx">Login</a>
-      </main>
-      );
+      <Link href="/login" className="ml-1 text-blue-600 underline">
+Faça Login
+</Link>
+</main>
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -109,4 +111,4 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+
