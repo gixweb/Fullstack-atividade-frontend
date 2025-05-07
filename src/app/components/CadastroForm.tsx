@@ -12,6 +12,24 @@ export default function CadastroForm() {
     alert(`Cadastro realizado: ${nome}, ${email}`);
   };
 
+  try {
+    const response = await fetch("http://localhost:8080/api/CadastroEndpoint", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ nome, email, senha }),
+    });
+
+    const data = await response.json();
+    console.log("Resposta do backend:", data);
+    
+    // Adicione aqui a lógica após o cadastro (redirecionamento, etc.)
+  } catch (error) {
+    console.error("Erro no cadastro:", error);
+  }
+};
+
   return (
     <form
       className="flex-col align-middle justify-center"
