@@ -7,13 +7,12 @@ const [senha, setSenha] = useState("");
 
 const handleSubmit = (e: React.FormEvent) => {
 e.preventDefault();
-alert(`Login com: ${email}`);
-};
+try{
     const handleLogin = () =>{
-        fetch("http://localhost:8080/api/Oi-Mundo", {
+        fetch("http://localhost:8080/api/LoginProject", {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({ email, senha }),
           })
@@ -21,10 +20,12 @@ alert(`Login com: ${email}`);
             .then(data => {
                 console.log("Resposta do backend:", data);
             })
-            .catch(err => {
-                console.error("Erro no login:", err);
-            });
-         };
+        }
+    }
+    catch(error : any) {
+            console.error("Erro no login:", error);
+    
+    };
          return (
          <form onSubmit={handleSubmit}>
             <div className="mb-4">
